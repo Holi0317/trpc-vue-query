@@ -11,6 +11,7 @@ import {
   getHeaders,
   getQuery,
   getRouterParam,
+  isMethod,
   readBody,
 } from "h3";
 
@@ -43,7 +44,7 @@ const trimSlashes = (path: string): string => {
   return path;
 };
 
-export async function h3RequestHandler<TRouter extends AnyRouter>(
+export function h3RequestHandler<TRouter extends AnyRouter>(
   opts: H3HandlerRequestOptions<TRouter>,
 ) {
   return defineEventHandler(async (event): Promise<Response> => {
@@ -58,12 +59,14 @@ export async function h3RequestHandler<TRouter extends AnyRouter>(
     );
 
     const req: HTTPRequest = {
-      query: getQuery(event),
+      query: new URLSearchParams(getQuery(event)),
       method: event.method,
       headers: getHeaders(event),
-      body: getHeader(event, "content-type")?.startsWith("application/json")
-        ? await readBody(event)
-        : "",
+      body:
+        isMethod(event, ["PATCH", "POST", "PUT", "DELETE"]) &&
+        getHeader(event, "content-type")?.startsWith("application/json")
+          ? await readBody(event)
+          : "",
     };
 
     let resolve: (value: Response) => void;

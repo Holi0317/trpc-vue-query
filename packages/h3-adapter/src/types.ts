@@ -12,7 +12,7 @@ export type H3CreateContextFn<TRouter extends AnyRouter> = (
 ) => inferRouterContext<TRouter> | Promise<inferRouterContext<TRouter>>;
 
 export type H3CreateContextOption<TRouter extends AnyRouter> =
-  unknown extends inferRouterContext<TRouter>
+  object extends inferRouterContext<TRouter>
     ? {
         /**
          * @link https://trpc.io/docs/context

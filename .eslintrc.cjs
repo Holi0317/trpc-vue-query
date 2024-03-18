@@ -30,6 +30,17 @@ module.exports = {
 
     // ==== Relax rules ====
     "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        args: "all",
+        argsIgnorePattern: "^_",
+        caughtErrorsIgnorePattern: "^_",
+        destructuredArrayIgnorePattern: "^_",
+        varsIgnorePattern: "^_",
+        ignoreRestSiblings: true,
+      },
+    ],
 
     // ==== Strict rules ====
     eqeqeq: ["error", "smart"],

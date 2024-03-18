@@ -26,13 +26,16 @@
     "test": "vitest"
   },
   "devDependencies": {
+    "@trpc/client": "^10.45.2",
     "@types/node": "^20.11.28",
+    "get-port": "^7.0.0",
     "typescript": "^5.4.2",
     "unbuild": "^2.0.0",
-    "vitest": "^1.4.0"
+    "vitest": "^1.4.0",
+    "zod": "^3.22.4"
   },
   "peerDependencies": {
-    "h3": "^1.11.1",
-    "@trpc/server": "^10.45.2"
+    "@trpc/server": "^10.45.2",
+    "h3": "^1.11.1"
   }
 }

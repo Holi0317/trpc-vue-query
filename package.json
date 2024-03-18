@@ -6,7 +6,8 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "fmt": "prettier --write --ignore-unknown --cache .",
-    "lint": "eslint --ext .js,.ts,.cjs,.mjs,.vue ."
+    "lint": "eslint --ext .js,.ts,.cjs,.mjs,.vue .",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,12 @@
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-vue": "^9.23.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "prettier": "^3.2.5"
+  },
+  "lint-staged": {
+    "*": "prettier --cache --write --ignore-unknown",
+    "*.{.js,.ts,.cjs,.mjs,.vue}": "eslint --cache --fix"
   }
 }

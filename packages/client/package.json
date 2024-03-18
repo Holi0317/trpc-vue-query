@@ -1,0 +1,47 @@
+{
+  "name": "@tnq/client",
+  "version": "1.0.0",
+  "description": "Vue-query client for trpc",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.cts",
+  "module": "./dist/index.mjs",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@trpc/client": "^10.45.2",
+    "@types/node": "^20.11.28",
+    "get-port": "^7.0.0",
+    "typescript": "^5.4.2",
+    "unbuild": "^2.0.0",
+    "vitest": "^1.4.0",
+    "zod": "^3.22.4"
+  },
+  "peerDependencies": {
+    "@trpc/client": "^10.45.2",
+    "@tanstack/vue-query": "^5.28.4",
+    "vue": "^3.4.21"
+  }
+}

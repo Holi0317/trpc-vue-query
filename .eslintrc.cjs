@@ -28,6 +28,9 @@ module.exports = {
     "@typescript-eslint/consistent-type-definitions": "error",
     "@typescript-eslint/array-type": ["error", { default: "array-simple" }],
 
+    // ==== Relax rules ====
+    "@typescript-eslint/no-explicit-any": "off",
+
     // ==== Strict rules ====
     eqeqeq: ["error", "smart"],
     "no-console": ["error"],

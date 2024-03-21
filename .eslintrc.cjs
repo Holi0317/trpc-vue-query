@@ -48,5 +48,10 @@ module.exports = {
     "no-duplicate-imports": "error",
     // Ref: https://github.com/typescript-eslint/typescript-eslint/issues/3797
     "valid-typeof": "error",
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      { fixStyle: "inline-type-imports" },
+    ],
+    "@typescript-eslint/no-import-type-side-effects": "error",
   },
 };

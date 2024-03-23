@@ -28,20 +28,23 @@
   "scripts": {
     "build": "unbuild",
     "typecheck": "tsc --noEmit",
-    "test": "vitest"
+    "test": "vitest --typecheck"
   },
   "devDependencies": {
-    "@trpc/client": "^10.45.2",
     "@types/node": "^20.11.28",
+    "@vueuse/core": "^10.9.0",
     "get-port": "^7.0.0",
+    "jsdom": "^24.0.0",
     "typescript": "^5.4.2",
     "unbuild": "^2.0.0",
     "vitest": "^1.4.0",
     "zod": "^3.22.4"
   },
   "peerDependencies": {
-    "@trpc/client": "^10.45.2",
+    "@tanstack/query-core": "^5.28.4",
     "@tanstack/vue-query": "^5.28.4",
+    "@trpc/client": "11.0.0-next-beta.318",
+    "@trpc/server": "11.0.0-next-beta.318",
     "vue": "^3.4.21"
   }
 }

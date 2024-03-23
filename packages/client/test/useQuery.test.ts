@@ -8,6 +8,7 @@ import { until } from "@vueuse/core";
 import { httpLink } from "@trpc/client";
 import getPort from "get-port";
 import { nextTick, ref } from "vue";
+import { useQueryClient } from "@tanstack/vue-query";
 
 describe("useQuery", async () => {
   const t = initTRPC.create();
@@ -206,5 +207,20 @@ describe("useQuery", async () => {
     });
   });
 
-  it("should use provided query key");
+  it("should use provided query key", async () => {
+    const [{ q, queryClient }] = withSetup(() => {
+      const queryClient = useQueryClient();
+      const q = client.greet.useQuery(undefined, {
+        queryKey: ["mykey"],
+      });
+      return { q, queryClient };
+    });
+
+    expect(q.trpc.path).toEqual("greet");
+    expect(q.status.value).toEqual("pending");
+    expect(queryClient.getQueryState(["mykey"])).toBeDefined();
+
+    // Make sure we wait for the request to complete
+    await until(q.status).changed();
+  });
 });

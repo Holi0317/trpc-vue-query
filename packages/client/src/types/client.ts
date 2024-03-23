@@ -21,7 +21,7 @@ export type QueryKeyFactory = (path: string, input: unknown) => QueryKey;
  * @internal
  */
 export interface TRPCVueRoot {
-  getQueryKey: QueryKeyFactory;
+  queryKeyFactory: QueryKeyFactory;
   // TODO: Add useQueries
   // TODO: Add useSuspenseQueries
 }

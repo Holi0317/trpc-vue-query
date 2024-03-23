@@ -15,6 +15,6 @@ export function createRootHandler<TRouter extends AnyRouter>(
   const queryKeyFactory = opts.queryKeyFactory ?? defaultQueryKeyFactory;
 
   return {
-    getQueryKey: queryKeyFactory,
+    queryKeyFactory: queryKeyFactory,
   };
 }

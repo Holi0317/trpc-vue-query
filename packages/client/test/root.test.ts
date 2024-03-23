@@ -44,8 +44,8 @@ describe("root", () => {
     links: [],
   });
 
-  it("getQueryKey should use default factory", () => {
-    const actual = client.getQueryKey("greet", undefined);
+  it("queryKeyFactory should use result of default factory", () => {
+    const actual = client.queryKeyFactory("greet", undefined);
     expect(actual).toEqual([
       { input: undefined, path: "greet", subsystem: "trpc" },
     ]);

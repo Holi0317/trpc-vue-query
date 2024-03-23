@@ -24,7 +24,7 @@ export interface TRPCVueRoot {
   // TODO: Add useSuspenseQueries
 }
 
-type DecorateProcedure<
+export type DecorateProcedure<
   TType extends ProcedureType,
   TDef extends ResolverDef,
 > = TType extends "query"

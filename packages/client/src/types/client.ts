@@ -13,7 +13,9 @@ import type {
   AnyRootTypes,
   RouterRecord,
 } from "@trpc/server/unstable-core-do-not-import";
-import type { QueryKeyFactory } from "../defaultQueryKeyFactory";
+import type { QueryKey } from "@tanstack/query-core";
+
+export type QueryKeyFactory = (path: string, input: unknown) => QueryKey;
 
 /**
  * @internal

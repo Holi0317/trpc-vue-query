@@ -1,6 +1,4 @@
-import type { QueryKey } from "@tanstack/query-core";
-
-export type QueryKeyFactory = (path: string, input: unknown) => QueryKey;
+import type { QueryKeyFactory } from "./types/client";
 
 /**
  * Default query key factory.

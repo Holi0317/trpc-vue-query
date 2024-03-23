@@ -5,7 +5,7 @@ import { TRPCUntypedClient } from "@trpc/client";
 import { createFlatProxy } from "@trpc/server/unstable-core-do-not-import";
 import { createVueDecoration } from "./decorationProxy";
 import { createVueQueryHooks } from "./createHooksInternal";
-import { defaultQueryKeyFactory } from "./defaultQueryKeyFactory";
+import { defaultQueryKeyFactory } from "./rootHandler";
 
 export function createTRPCVue<TRouter extends AnyRouter>(
   opts: CreateTRPCVueOptions<TRouter>,

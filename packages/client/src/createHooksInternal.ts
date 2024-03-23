@@ -6,7 +6,7 @@ import type {
   UseTRPCQueryOptions,
   UseTRPCQueryReturnType,
 } from "./types/decorate/query";
-import { defaultQueryKeyFactory } from "./defaultQueryKeyFactory";
+import { defaultQueryKeyFactory } from "./rootHandler";
 import { onServerPrefetch } from "vue";
 import { cloneDeepUnref } from "./cloneDeepUnref";
 

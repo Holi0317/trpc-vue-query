@@ -11,9 +11,9 @@ export function createTRPCVue<TRouter extends AnyRouter>(
   opts: CreateTRPCVueOptions<TRouter>,
 ): CreateTRPCVue<TRouter> {
   const client = new TRPCUntypedClient<TRouter>(opts);
-  const hooks = createVueQueryHooks(client, opts);
-
   const rootHandler = createRootHandler(opts);
+
+  const hooks = createVueQueryHooks({ client, root: rootHandler, opts });
 
   const rootProxy = createFlatProxy<CreateTRPCVue<TRouter>>((key) => {
     if (Object.prototype.hasOwnProperty.call(rootHandler, key)) {

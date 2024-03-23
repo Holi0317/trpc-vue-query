@@ -9,6 +9,13 @@ import type {
 import { defaultQueryKeyFactory } from "./rootHandler";
 import { onServerPrefetch } from "vue";
 import { cloneDeepUnref } from "./cloneDeepUnref";
+import type { TRPCVueRoot } from "./types/client";
+
+interface HookContext<TRouter extends AnyRouter> {
+  client: TRPCUntypedClient<TRouter>;
+  root: TRPCVueRoot;
+  opts: CreateTRPCVueOptions<TRouter>;
+}
 
 /**
  * Main logic here.
@@ -18,10 +25,9 @@ import { cloneDeepUnref } from "./cloneDeepUnref";
  * @internal
  */
 export function createVueQueryHooks<TRouter extends AnyRouter>(
-  client: TRPCUntypedClient<TRouter>,
-  opts: CreateTRPCVueOptions<TRouter>,
+  context: HookContext<TRouter>,
 ) {
-  const queryDeco = useQueryProc(client, opts);
+  const queryDeco = useQueryProc(context);
   useMutationProc();
   useSubscriptionProc();
 
@@ -31,8 +37,7 @@ export function createVueQueryHooks<TRouter extends AnyRouter>(
 }
 
 function useQueryProc<TRouter extends AnyRouter>(
-  client: TRPCUntypedClient<TRouter>,
-  rootOpts: CreateTRPCVueOptions<TRouter>,
+  context: HookContext<TRouter>,
 ) {
   function useQueryDeco(
     path: string,
@@ -42,7 +47,7 @@ function useQueryProc<TRouter extends AnyRouter>(
   ): UseTRPCQueryReturnType<unknown, Error> {
     const queryKey =
       opts?.queryKey ??
-      rootOpts?.queryKeyFactory?.(path, input) ??
+      context.opts?.queryKeyFactory?.(path, input) ??
       defaultQueryKeyFactory(path, input);
 
     const queryHook = useQuery(
@@ -50,13 +55,16 @@ function useQueryProc<TRouter extends AnyRouter>(
         ...opts,
         queryKey,
         queryFn: ({ signal }) =>
-          client.query(path, cloneDeepUnref(input), { ...opts?.trpc, signal }),
+          context.client.query(path, cloneDeepUnref(input), {
+            ...opts?.trpc,
+            signal,
+          }),
       },
       queryClient,
     );
 
     const serverPrefetch =
-      rootOpts.serverPrefetch ?? opts?.trpc?.serverPrefetch ?? false;
+      context.opts.serverPrefetch ?? opts?.trpc?.serverPrefetch ?? false;
     if (serverPrefetch) {
       onServerPrefetch(() => {
         return queryHook.suspense();

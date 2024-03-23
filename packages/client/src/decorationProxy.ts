@@ -34,5 +34,5 @@ export function createVueDecoration<TRouter extends AnyRouter>(
 export function getProcedureDef(
   procedure: DecorateProcedure<ProcedureType, any>,
 ): { path: string } {
-  return (procedure as any)._def;
+  return (procedure as any)._def();
 }

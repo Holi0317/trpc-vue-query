@@ -22,6 +22,10 @@ export type QueryKeyFactory = (path: string, input: unknown) => QueryKey;
  */
 export interface TRPCVueRoot {
   queryKeyFactory: QueryKeyFactory;
+  queryKey: <TDef extends ResolverDef>(
+    procedure: DecorateProcedure<ProcedureType, TDef>,
+    input: TDef["input"],
+  ) => QueryKey;
   // TODO: Add useQueries
   // TODO: Add useSuspenseQueries
 }

@@ -1,6 +1,7 @@
 import type { AnyRouter } from "@trpc/server";
 import type { QueryKeyFactory, TRPCVueRoot } from "./types/client";
 import type { CreateTRPCVueOptions } from "./types/option";
+import { getProcedureDef } from "./decorationProxy";
 
 /**
  * Default query key factory.
@@ -15,6 +16,10 @@ export function createRootHandler<TRouter extends AnyRouter>(
   const queryKeyFactory = opts.queryKeyFactory ?? defaultQueryKeyFactory;
 
   return {
-    queryKeyFactory: queryKeyFactory,
+    queryKeyFactory,
+    queryKey(procedure, input) {
+      const { path } = getProcedureDef(procedure);
+      return queryKeyFactory(path, input);
+    },
   };
 }

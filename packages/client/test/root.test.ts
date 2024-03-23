@@ -53,5 +53,10 @@ describe("root", () => {
 
   it("should use provided query factory");
 
-  it("getQueryKey should work on procedure");
+  it("queryKey should work on procedure", () => {
+    const actual = client.queryKey(client.sub1.sub2.proc2, undefined);
+    expect(actual).toEqual([
+      { input: undefined, path: "sub1.sub2.proc2", subsystem: "trpc" },
+    ]);
+  });
 });

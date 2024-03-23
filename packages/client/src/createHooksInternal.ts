@@ -6,7 +6,6 @@ import type {
   UseTRPCQueryOptions,
   UseTRPCQueryReturnType,
 } from "./types/decorate/query";
-import { defaultQueryKeyFactory } from "./rootHandler";
 import { onServerPrefetch } from "vue";
 import { cloneDeepUnref } from "./cloneDeepUnref";
 import type { TRPCVueRoot } from "./types/client";
@@ -46,9 +45,7 @@ function useQueryProc<TRouter extends AnyRouter>(
     queryClient?: QueryClient,
   ): UseTRPCQueryReturnType<unknown, Error> {
     const queryKey =
-      opts?.queryKey ??
-      context.opts?.queryKeyFactory?.(path, input) ??
-      defaultQueryKeyFactory(path, input);
+      opts?.queryKey ?? context.root.queryKeyFactory(path, input);
 
     const queryHook = useQuery(
       {

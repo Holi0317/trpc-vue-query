@@ -223,4 +223,6 @@ describe("useQuery", async () => {
     // Make sure we wait for the request to complete
     await until(q.status).changed();
   });
+
+  it("should work with select remapping");
 });

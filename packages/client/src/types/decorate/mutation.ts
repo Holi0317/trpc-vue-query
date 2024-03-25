@@ -1,7 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { TRPCClientErrorLike } from "@trpc/client";
 import type { ResolverDef } from "../shared";
-import type { QueryClient } from "@tanstack/vue-query";
+import type {
+  QueryClient,
+  UseMutationOptions,
+  UseMutationReturnType,
+} from "@tanstack/vue-query";
+import type { TRPCHookResult, TRPCUseQueryBaseOptions } from "./shared";
 
 export interface DecorateMutation<TDef extends ResolverDef> {
   useMutation: <TContext = unknown>(
@@ -12,16 +16,24 @@ export interface DecorateMutation<TDef extends ResolverDef> {
       TContext
     >,
     queryClient?: QueryClient,
-  ) => unknown;
+  ) => UseTRPCMutationResult<
+    TDef["output"],
+    TRPCClientErrorLike<TDef>,
+    TDef["input"],
+    TContext
+  >;
 }
 
-export interface UseTRPCMutationOptions<
+export type UseTRPCMutationOptions<
   TInput,
   TError,
   TOutput,
   TContext = unknown,
-> {
-  // TODO
-  // extends UseMutationOptions<TOutput, TError, TInput, TContext>,
-  //    TRPCUseQueryBaseOptions {}
-}
+> = UseMutationOptions<TOutput, TError, TInput, TContext> &
+  TRPCUseQueryBaseOptions;
+
+/**
+ * @internal
+ */
+export type UseTRPCMutationResult<TData, TError, TVariables, TContext> =
+  TRPCHookResult & UseMutationReturnType<TData, TError, TVariables, TContext>;

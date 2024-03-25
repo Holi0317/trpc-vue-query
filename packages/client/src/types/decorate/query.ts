@@ -1,4 +1,4 @@
-import type { TRPCClientErrorLike, TRPCRequestOptions } from "@trpc/client";
+import type { TRPCClientErrorLike } from "@trpc/client";
 import type { MaybeRef } from "vue";
 import type { QueryKey, SkipToken } from "@tanstack/query-core";
 import type {
@@ -9,6 +9,7 @@ import type {
 } from "@tanstack/vue-query";
 import type { ResolverDef, NonUndefinedGuard } from "../shared";
 import type { MaybeRefDeep } from "../../cloneDeepUnref";
+import type { TRPCHookResult, TRPCUseQueryBaseOptions } from "./shared";
 
 /**
  * @internal
@@ -36,28 +37,14 @@ export type UseTRPCQueryOptions<
   // We will generate a queryKey. But allow caller to override. So this will not
   // be required.
   "queryKey"
-> & {
-  /**
-   * Override query key for this query. If not provided, we will use the
-   * configured query key factory to generate query key.
-   */
-  queryKey?: MaybeRef<QueryKey>;
-
-  /**
-   * TRPC-specific options for this query
-   */
-  trpc?: Omit<TRPCRequestOptions, "signal"> & {
+> &
+  TRPCUseQueryBaseOptions & {
     /**
-     * `onServerPrefetch` on suspense. Default to false. Set this to true in nuxt.
-     *
-     * Can override in per-procedure level.
-     * TODO: Docs
-     *
-     * @default false
+     * Override query key for this query. If not provided, we will use the
+     * configured query key factory to generate query key.
      */
-    serverPrefetch?: boolean;
+    queryKey?: MaybeRef<QueryKey>;
   };
-};
 
 type UndefinedInitialTRPCQueryOptions<
   TQueryFnData = unknown,
@@ -78,12 +65,6 @@ type DefinedInitialTRPCQueryOptions<
     | NonUndefinedGuard<TQueryFnData>
     | (() => NonUndefinedGuard<TQueryFnData>);
 };
-
-export interface TRPCHookResult {
-  trpc: {
-    path: string;
-  };
-}
 
 /**
  * @internal

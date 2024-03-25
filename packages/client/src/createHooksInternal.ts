@@ -1,7 +1,7 @@
 import type { TRPCUntypedClient } from "@trpc/client";
 import type { AnyRouter } from "@trpc/server";
 import type { CreateTRPCVueOptions } from "./types/option";
-import { type QueryClient, useQuery } from "@tanstack/vue-query";
+import { type QueryClient, useQuery, useMutation } from "@tanstack/vue-query";
 import type {
   UseTRPCQueryOptions,
   UseTRPCQueryReturnType,
@@ -9,6 +9,10 @@ import type {
 import { onServerPrefetch } from "vue";
 import { cloneDeepUnref } from "./cloneDeepUnref";
 import type { TRPCVueRoot } from "./types/client";
+import type {
+  UseTRPCMutationOptions,
+  UseTRPCMutationResult,
+} from "./types/decorate/mutation";
 
 interface HookContext<TRouter extends AnyRouter> {
   client: TRPCUntypedClient<TRouter>;
@@ -27,11 +31,12 @@ export function createVueQueryHooks<TRouter extends AnyRouter>(
   context: HookContext<TRouter>,
 ) {
   const queryDeco = useQueryProc(context);
-  useMutationProc();
+  const mutationDeco = useMutationProc(context);
   useSubscriptionProc();
 
   return {
     ...queryDeco,
+    ...mutationDeco,
   };
 }
 
@@ -81,7 +86,40 @@ function useQueryProc<TRouter extends AnyRouter>(
   };
 }
 
-function useMutationProc() {}
+function useMutationProc<TRouter extends AnyRouter>(
+  context: HookContext<TRouter>,
+) {
+  const useMutationDeco = (
+    path: string,
+    opts?: UseTRPCMutationOptions<unknown, unknown, unknown, unknown>,
+    queryClient?: QueryClient,
+  ): UseTRPCMutationResult<unknown, unknown, unknown, unknown> => {
+    // ?: Do we need to move generation of mutation key to config?
+    const mutationKey = [path];
+
+    const mutationHook = useMutation(
+      {
+        ...opts,
+        mutationKey,
+        mutationFn: (input) => {
+          return context.client.mutation(path, input, opts?.trpc);
+        },
+      },
+      queryClient,
+    );
+
+    return {
+      ...mutationHook,
+      trpc: {
+        path,
+      },
+    };
+  };
+
+  return {
+    useMutation: useMutationDeco,
+  };
+}
 
 function useSubscriptionProc() {}
 

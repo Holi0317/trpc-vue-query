@@ -5,7 +5,6 @@ import { initTRPC } from "@trpc/server";
 import { createTRPCVue } from "../src/createTRPCVue";
 import { withSetup } from "./testutil";
 import { until } from "@vueuse/core";
-import { httpLink } from "@trpc/client";
 import getPort from "get-port";
 
 describe("useMutation", async () => {
@@ -54,16 +53,10 @@ describe("useMutation", async () => {
     server.close();
   });
 
-  const client = createTRPCVue<Router>({
-    links: [
-      httpLink({
-        url: `http://127.0.0.1:${port}`,
-      }),
-    ],
-  });
+  const client = createTRPCVue<Router>();
 
   it("should return mutation", async () => {
-    const [m] = withSetup(() => {
+    const [m] = withSetup(client, port, () => {
       return client.greet.useMutation();
     });
 

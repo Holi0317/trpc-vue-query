@@ -14,13 +14,17 @@ import type {
   RouterRecord,
 } from "@trpc/server/unstable-core-do-not-import";
 import type { QueryKey } from "@tanstack/query-core";
+import type { ObjectPlugin } from "vue";
+import type { TRPCProviderContent } from "../provider";
 
 export type QueryKeyFactory = (path: string, input: unknown) => QueryKey;
 
 /**
  * @internal
  */
-export interface TRPCVueRoot {
+export type TRPCVueRoot<TRouter extends AnyRouter> = ObjectPlugin<
+  TRPCProviderContent<TRouter>
+> & {
   queryKeyFactory: QueryKeyFactory;
   queryKey: <TDef extends ResolverDef>(
     procedure: DecorateProcedure<ProcedureType, TDef>,
@@ -28,7 +32,7 @@ export interface TRPCVueRoot {
   ) => QueryKey;
   // TODO: Add useQueries
   // TODO: Add useSuspenseQueries
-}
+};
 
 export type DecorateProcedure<
   TType extends ProcedureType,
@@ -63,7 +67,7 @@ type DecorateRouterRecord<
 };
 
 export type CreateTRPCVue<TRouter extends AnyRouter> = ProtectedIntersection<
-  TRPCVueRoot,
+  TRPCVueRoot<TRouter>,
   DecorateRouterRecord<
     TRouter["_def"]["_config"]["$types"],
     TRouter["_def"]["record"]

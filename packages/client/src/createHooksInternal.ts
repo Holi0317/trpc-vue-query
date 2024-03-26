@@ -1,4 +1,3 @@
-import type { TRPCUntypedClient } from "@trpc/client";
 import type { AnyRouter } from "@trpc/server";
 import type { CreateTRPCVueOptions } from "./types/option";
 import { type QueryClient, useQuery, useMutation } from "@tanstack/vue-query";
@@ -13,11 +12,11 @@ import type {
   UseTRPCMutationOptions,
   UseTRPCMutationResult,
 } from "./types/decorate/mutation";
+import { injectTrpc } from "./provider";
 
 interface HookContext<TRouter extends AnyRouter> {
-  client: TRPCUntypedClient<TRouter>;
-  root: TRPCVueRoot;
-  opts: CreateTRPCVueOptions<TRouter>;
+  root: TRPCVueRoot<TRouter>;
+  opts: CreateTRPCVueOptions;
 }
 
 /**
@@ -52,12 +51,14 @@ function useQueryProc<TRouter extends AnyRouter>(
     const queryKey =
       opts?.queryKey ?? context.root.queryKeyFactory(path, input);
 
+    const { client } = injectTrpc<TRouter>();
+
     const queryHook = useQuery(
       {
         ...opts,
         queryKey,
         queryFn: ({ signal }) =>
-          context.client.query(path, cloneDeepUnref(input), {
+          client.query(path, cloneDeepUnref(input), {
             ...opts?.trpc,
             signal,
           }),
@@ -97,12 +98,14 @@ function useMutationProc<TRouter extends AnyRouter>(
     // ?: Do we need to move generation of mutation key to config?
     const mutationKey = [path];
 
+    const { client } = injectTrpc<TRouter>();
+
     const mutationHook = useMutation(
       {
         ...opts,
         mutationKey,
         mutationFn: (input) => {
-          return context.client.mutation(path, input, opts?.trpc);
+          return client.mutation(path, input, opts?.trpc);
         },
       },
       queryClient,

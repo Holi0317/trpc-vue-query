@@ -40,9 +40,7 @@ describe("root", () => {
 
   type Router = typeof router;
 
-  const client = createTRPCVue<Router>({
-    links: [],
-  });
+  const client = createTRPCVue<Router>();
 
   it("queryKeyFactory should use result of default factory", () => {
     const actual = client.queryKeyFactory("greet", undefined);
@@ -51,7 +49,7 @@ describe("root", () => {
     ]);
   });
 
-  it("should use provided query factory");
+  it.todo("should use provided query factory");
 
   it("queryKey should work on procedure", () => {
     const actual = client.queryKey(client.sub1.sub2.proc2, undefined);

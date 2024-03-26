@@ -21,9 +21,7 @@ describe("Simple server", () => {
 
   type Router = typeof router;
 
-  const client = createTRPCVue<Router>({
-    links: [],
-  });
+  const client = createTRPCVue<Router>();
 
   it("should infer useQuery properly", () => {
     const q = client.greet.useQuery();
@@ -50,9 +48,9 @@ describe("Simple server", () => {
     });
   });
 
-  it("should infer mutation properly");
+  it.todo("should infer mutation properly");
 
-  it("should infer nested query");
+  it.todo("should infer nested query");
 });
 
-it("should reject overlap naming on root");
+it.todo("should reject overlap naming on root");

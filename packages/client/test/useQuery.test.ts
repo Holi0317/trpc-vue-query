@@ -5,7 +5,6 @@ import { initTRPC } from "@trpc/server";
 import { createTRPCVue } from "../src/createTRPCVue";
 import { withSetup } from "./testutil";
 import { until } from "@vueuse/core";
-import { httpLink } from "@trpc/client";
 import getPort from "get-port";
 import { nextTick, ref } from "vue";
 import { useQueryClient } from "@tanstack/vue-query";
@@ -52,20 +51,14 @@ describe("useQuery", async () => {
     router,
   }).listen(port);
 
-  const client = createTRPCVue<Router>({
-    links: [
-      httpLink({
-        url: `http://127.0.0.1:${port}`,
-      }),
-    ],
-  });
+  const client = createTRPCVue<Router>();
 
   afterAll(() => {
     server.close();
   });
 
   it("should return `useQuery` for queries", async () => {
-    const [q] = withSetup(() => {
+    const [q] = withSetup(client, port, () => {
       return client.greet.useQuery();
     });
 
@@ -86,7 +79,7 @@ describe("useQuery", async () => {
   });
 
   it("should handle `initialData` properly", async () => {
-    const [q] = withSetup(() => {
+    const [q] = withSetup(client, port, () => {
       return client.greet.useQuery(undefined, {
         initialData: "asdf",
       });
@@ -111,7 +104,7 @@ describe("useQuery", async () => {
   });
 
   it("should work with deep query", async () => {
-    const [q] = withSetup(() => {
+    const [q] = withSetup(client, port, () => {
       return client.sub1.sub2.proc2.useQuery();
     });
 
@@ -131,7 +124,7 @@ describe("useQuery", async () => {
   });
 
   it("should work with query parameters", async () => {
-    const [q] = withSetup(() => {
+    const [q] = withSetup(client, port, () => {
       return client.sub1.proc1.useQuery({ deep: { content: 123 } });
     });
 
@@ -151,7 +144,7 @@ describe("useQuery", async () => {
   });
 
   it("should deep unref query parameters", async () => {
-    const [q] = withSetup(() => {
+    const [q] = withSetup(client, port, () => {
       return client.sub1.proc1.useQuery({ deep: ref({ content: 123 }) });
     });
 
@@ -171,7 +164,7 @@ describe("useQuery", async () => {
   });
 
   it("should trigger refetch if input has changed", async () => {
-    const [{ content, q }] = withSetup(() => {
+    const [{ content, q }] = withSetup(client, port, () => {
       const content = ref(123);
       const q = client.sub1.proc1.useQuery({ deep: { content } });
 
@@ -208,7 +201,7 @@ describe("useQuery", async () => {
   });
 
   it("should use provided query key", async () => {
-    const [{ q, queryClient }] = withSetup(() => {
+    const [{ q, queryClient }] = withSetup(client, port, () => {
       const queryClient = useQueryClient();
       const q = client.greet.useQuery(undefined, {
         queryKey: ["mykey"],
@@ -224,5 +217,5 @@ describe("useQuery", async () => {
     await until(q.status).changed();
   });
 
-  it("should work with select remapping");
+  it.todo("should work with select remapping");
 });

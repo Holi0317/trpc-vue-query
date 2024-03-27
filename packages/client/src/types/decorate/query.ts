@@ -1,5 +1,5 @@
 import type { TRPCClientErrorLike } from "@trpc/client";
-import type { MaybeRef } from "vue";
+import type { MaybeRef, Ref } from "vue";
 import type { QueryKey, SkipToken } from "@tanstack/query-core";
 import type {
   QueryClient,
@@ -32,13 +32,17 @@ export type UseTRPCQueryOptions<
   TError = Error,
   TData = TQueryFnData,
   TQueryData = TQueryFnData,
-> = Omit<
-  UseQueryOptions<TQueryFnData, TError, TData, TQueryData, QueryKey>,
-  // We will generate a queryKey. But allow caller to override. So this will not
-  // be required.
-  "queryKey"
-> &
-  TRPCUseQueryBaseOptions & {
+> = TRPCUseQueryBaseOptions &
+  Omit<
+    // Not sure how to support ref here. So not supporting it for now
+    Exclude<
+      UseQueryOptions<TQueryFnData, TError, TData, TQueryData, QueryKey>,
+      Ref<any>
+    >,
+    // We will generate a queryKey. But allow caller to override. So this will not
+    // be required.
+    "queryKey"
+  > & {
     /**
      * Override query key for this query. If not provided, we will use the
      * configured query key factory to generate query key.

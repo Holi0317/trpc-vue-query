@@ -48,6 +48,17 @@ describe("Simple server", () => {
     });
   });
 
+  it("should infer select properly", () => {
+    const q = client.greet.useQuery(undefined, {
+      select(data) {
+        assertType<string>(data);
+        return { my: data };
+      },
+    });
+
+    assertType<{ my: string } | undefined>(q.data.value);
+  });
+
   it.todo("should infer mutation properly");
 
   it.todo("should infer nested query");

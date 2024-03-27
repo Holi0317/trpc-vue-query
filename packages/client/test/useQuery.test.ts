@@ -217,5 +217,32 @@ describe("useQuery", async () => {
     await until(q.status).changed();
   });
 
-  it.todo("should work with select remapping");
+  it("should work with select remapping", async () => {
+    const [{ q1, q2 }] = withSetup(client, port, () => {
+      const q1 = client.greet.useQuery(undefined, {
+        select(data) {
+          return { my: data };
+        },
+      });
+
+      const q2 = client.greet.useQuery();
+
+      return { q1, q2 };
+    });
+
+    expect(q1.trpc.path).toEqual("greet");
+    expect(q1.status.value).toEqual("pending");
+
+    await until(q1.status).changed();
+    expect(q1.data.value).toEqual({ my: "hello" });
+    expect(q2.data.value).toEqual("hello");
+
+    // Assert query is de-duplicating calls
+    expect(spy).toHaveBeenCalledOnce();
+    expect(spy).toBeCalledWith({
+      type: "query",
+      path: "greet",
+      input: undefined,
+    });
+  });
 });

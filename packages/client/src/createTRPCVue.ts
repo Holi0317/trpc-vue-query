@@ -6,6 +6,11 @@ import { createVueDecoration } from "./decorationProxy";
 import { createVueQueryHooks } from "./createHooksInternal";
 import { createRootHandler } from "./rootHandler";
 
+/**
+ * Create the trpc-vue-query binding client.
+ *
+ * After creating this client, register it with `app.use` as a plugin.
+ */
 export function createTRPCVue<TRouter extends AnyRouter>(
   opts: CreateTRPCVueOptions = {},
 ): CreateTRPCVue<TRouter> {

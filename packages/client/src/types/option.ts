@@ -1,8 +1,10 @@
-import type { QueryKey } from "@tanstack/query-core";
+import type { QueryKeyFactory } from "./client";
 
 export interface CreateTRPCVueOptions {
   /**
-   * `onServerPrefetch` on suspense. Default to false. Set this to true in nuxt.
+   * If true, run `await .suspense()` for queries on `onServerPrefetch`.
+   *
+   * Default to false. Set this to true in SSR environment (eg nuxt).
    *
    * Can override in per-procedure level.
    *
@@ -10,5 +12,8 @@ export interface CreateTRPCVueOptions {
    */
   serverPrefetch?: boolean;
 
-  queryKeyFactory?: (path: string, input: unknown) => QueryKey;
+  /**
+   * Override the default query key factory for queries.
+   */
+  queryKeyFactory?: QueryKeyFactory;
 }

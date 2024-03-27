@@ -11,7 +11,7 @@ export type MaybeRefDeep<T> = MaybeRef<
       : T
 >;
 
-export function cloneDeep<T>(
+function cloneDeep<T>(
   value: MaybeRefDeep<T>,
   customize?: (val: MaybeRefDeep<T>) => T | undefined,
 ): T {
@@ -40,6 +40,12 @@ export function cloneDeep<T>(
 
   return value as T;
 }
+
+/**
+ * Clone the given object and deeply unref it.
+ *
+ * Copied from vue-query source code.
+ */
 export function cloneDeepUnref<T>(obj: MaybeRefDeep<T>): T {
   return cloneDeep(obj, (val) => {
     if (isRef(val)) {

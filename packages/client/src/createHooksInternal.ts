@@ -20,7 +20,10 @@ interface HookContext<TRouter extends AnyRouter> {
 }
 
 /**
- * Main logic here.
+ * Main composable implementation.
+ *
+ * Each function will receive an additional `path: string` as the first
+ * parameter. The type declaration is done in types/decorate files.
  *
  * Really not much types here. Good luck.
  *
@@ -126,6 +129,7 @@ function useSubscriptionProc() {}
 
 /**
  * Infer the type of a `createReactQueryHooks` function
+ *
  * @internal
  */
 export type CreateVueQueryHooks<TRouter extends AnyRouter> = ReturnType<

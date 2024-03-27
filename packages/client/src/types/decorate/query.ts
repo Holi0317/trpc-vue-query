@@ -12,9 +12,12 @@ import type { MaybeRefDeep } from "../../cloneDeepUnref";
 import type { TRPCHookResult, TRPCUseQueryBaseOptions } from "./shared";
 
 /**
- * @internal
+ * Query decoration
  */
 export interface DecorateQuery<TProcedure extends ResolverDef> {
+  /**
+   * Query the procedure
+   */
   useQuery: ProcedureUseQuery<TProcedure>;
   // TODO: Add infinite query
   // TODO: Add suspense query
@@ -45,6 +48,13 @@ export type UseTRPCQueryOptions<
      * configured query key factory to generate query key.
      */
     queryKey?: MaybeRef<QueryKey>;
+
+    /**
+     * If true, run `.suspense()` method in `onServerPrefetch` on suspense.
+     *
+     * Default to the options used in the setup.
+     */
+    serverPrefetch?: boolean;
   };
 
 type UndefinedInitialTRPCQueryOptions<

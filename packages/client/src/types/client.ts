@@ -17,9 +17,22 @@ import type { QueryKey } from "@tanstack/query-core";
 import type { ObjectPlugin } from "vue";
 import type { TRPCProviderContent } from "../provider";
 
+/**
+ * Query factory type.
+ *
+ * Query key factory is only used by query procedures only. Mutations and
+ * subscriptions will always use the query path as the query key.
+ *
+ * Default implementation is in `rootHandler.ts`.
+ */
 export type QueryKeyFactory = (path: string, input: unknown) => QueryKey;
 
 /**
+ * Methods available on the trpc-vue-query client root.
+ *
+ * WARNING: Property in the return value **must** be functions. Other value type
+ * won't work.
+ *
  * @internal
  */
 export type TRPCVueRoot<TRouter extends AnyRouter> = ObjectPlugin<

@@ -7,6 +7,9 @@ import type {
 } from "@tanstack/vue-query";
 import type { TRPCHookResult, TRPCUseQueryBaseOptions } from "./shared";
 
+/**
+ * Mutation decoration
+ */
 export interface DecorateMutation<TDef extends ResolverDef> {
   useMutation: <TContext = unknown>(
     opts?: UseTRPCMutationOptions<
@@ -32,8 +35,5 @@ export type UseTRPCMutationOptions<
 > = UseMutationOptions<TOutput, TError, TInput, TContext> &
   TRPCUseQueryBaseOptions;
 
-/**
- * @internal
- */
 export type UseTRPCMutationResult<TData, TError, TVariables, TContext> =
   TRPCHookResult & UseMutationReturnType<TData, TError, TVariables, TContext>;

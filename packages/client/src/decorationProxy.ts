@@ -27,7 +27,7 @@ export function createVueDecoration<TRouter extends AnyRouter>(
 }
 
 /**
- * Definition of the procedure.
+ * Get the internal definition (aka path) of the procedure.
  *
  * @internal
  */

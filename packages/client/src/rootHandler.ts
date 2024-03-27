@@ -7,10 +7,20 @@ import { ProviderSymbol } from "./provider";
 /**
  * Default query key factory.
  */
-export const defaultQueryKeyFactory: QueryKeyFactory = (path, input) => {
+const defaultQueryKeyFactory: QueryKeyFactory = (path, input) => {
   return [{ subsystem: "trpc", path, input }];
 };
 
+/**
+ * Create the root handler.
+ *
+ * Methods in here will be available on the root of the trpc-vue-query client.
+ *
+ * WARNING: Property in the return value **must** be functions. Other value type
+ * won't work.
+ *
+ * @internal
+ */
 export function createRootHandler<TRouter extends AnyRouter>(
   opts: CreateTRPCVueOptions,
 ): TRPCVueRoot<TRouter> {

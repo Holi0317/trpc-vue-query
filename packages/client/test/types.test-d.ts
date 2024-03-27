@@ -31,6 +31,14 @@ describe("Simple server", () => {
     assertType<{ path: string }>(q.trpc);
   });
 
+  it("should only have `useQuery` in query type", () => {
+    const proc = client.greet;
+
+    type k = keyof typeof proc;
+    const v: k = null as any;
+    assertType<"useQuery">(v);
+  });
+
   it("should infer initialData properly", () => {
     const q = client.greet.useQuery(undefined, {
       initialData: "asdf",
@@ -59,9 +67,19 @@ describe("Simple server", () => {
     assertType<{ my: string } | undefined>(q.data.value);
   });
 
-  it.todo("should infer mutation properly");
+  it("should only have `useMutation` in mutation type", () => {
+    const proc = client.greetMut;
 
-  it.todo("should infer nested query");
+    type k = keyof typeof proc;
+    const v: k = null as any;
+    assertType<"useMutation">(v);
+  });
+
+  it("should infer mutation properly", () => {
+    const mut = client.greetMut.useMutation();
+
+    assertType<(input: { name: string }) => void>(mut.mutate);
+  });
 });
 
 it.todo("should reject overlap naming on root");

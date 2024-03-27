@@ -15,9 +15,6 @@ import type { TRPCHookResult, TRPCUseQueryBaseOptions } from "./shared";
  * @internal
  */
 export interface DecorateQuery<TProcedure extends ResolverDef> {
-  // TODO: Remove this. Move to root. Also link to trpc issue/pr
-  getQueryKey(input: TProcedure["input"]): QueryKey;
-
   useQuery: ProcedureUseQuery<TProcedure>;
   // TODO: Add infinite query
   // TODO: Add suspense query

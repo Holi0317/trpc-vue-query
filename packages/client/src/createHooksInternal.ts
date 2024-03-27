@@ -29,8 +29,8 @@ interface HookContext<TRouter extends AnyRouter> {
 export function createVueQueryHooks<TRouter extends AnyRouter>(
   context: HookContext<TRouter>,
 ) {
-  const queryDeco = useQueryProc(context);
-  const mutationDeco = useMutationProc(context);
+  const queryDeco = useQueryProc<TRouter>(context);
+  const mutationDeco = useMutationProc<TRouter>();
   useSubscriptionProc();
 
   return {
@@ -87,9 +87,7 @@ function useQueryProc<TRouter extends AnyRouter>(
   };
 }
 
-function useMutationProc<TRouter extends AnyRouter>(
-  context: HookContext<TRouter>,
-) {
+function useMutationProc<TRouter extends AnyRouter>() {
   const useMutationDeco = (
     path: string,
     opts?: UseTRPCMutationOptions<unknown, unknown, unknown, unknown>,

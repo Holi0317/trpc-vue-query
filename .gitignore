@@ -1,4 +1,6 @@
 tsconfig.vitest-temp.json
+docs/.vitepress/dist
+docs/.vitepress/cache
 
 # Created by https://www.toptal.com/developers/gitignore/api/intellij
 # Edit at https://www.toptal.com/developers/gitignore?templates=intellij

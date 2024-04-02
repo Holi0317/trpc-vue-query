@@ -12,5 +12,5 @@
     "moduleResolution": "bundler",
     "isolatedModules": true
   },
-  "include": ["src"]
+  "include": ["src", "test"]
 }

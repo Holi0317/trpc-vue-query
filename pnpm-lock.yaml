@@ -79,15 +79,15 @@ importers:
   packages/h3-adapter:
     dependencies:
       '@trpc/server':
-        specifier: ^10.45.2
-        version: 10.45.2
+        specifier: 11.0.0-next-beta.318
+        version: 11.0.0-next-beta.318
       h3:
         specifier: ^1.11.1
         version: 1.11.1
     devDependencies:
       '@trpc/client':
-        specifier: ^10.45.2
-        version: 10.45.2(@trpc/server@10.45.2)
+        specifier: 11.0.0-next-beta.318
+        version: 11.0.0-next-beta.318(@trpc/server@11.0.0-next-beta.318)
       '@types/node':
         specifier: ^20.11.28
         version: 20.11.28
@@ -862,28 +862,15 @@ packages:
       vue-demi: 0.14.7(vue@3.4.21)
     dev: false
 
-  /@trpc/client@10.45.2(@trpc/server@10.45.2):
-    resolution: {integrity: sha512-ykALM5kYWTLn1zYuUOZ2cPWlVfrXhc18HzBDyRhoPYN0jey4iQHEFSEowfnhg1RvYnrAVjNBgHNeSAXjrDbGwg==}
-    peerDependencies:
-      '@trpc/server': 10.45.2
-    dependencies:
-      '@trpc/server': 10.45.2
-    dev: true
-
   /@trpc/client@11.0.0-next-beta.318(@trpc/server@11.0.0-next-beta.318):
     resolution: {integrity: sha512-R3IlUZqN3WKNNWsayMiVP6JqWVdyNSuwQmBQY7VqVepUBV210uo4GoFLv2vmmegOlHzgx9IUZG7u1grN1v1nAg==}
     peerDependencies:
       '@trpc/server': 11.0.0-next-beta.318+e9899d002
     dependencies:
       '@trpc/server': 11.0.0-next-beta.318
-    dev: false
-
-  /@trpc/server@10.45.2:
-    resolution: {integrity: sha512-wOrSThNNE4HUnuhJG6PfDRp4L2009KDVxsd+2VYH8ro6o/7/jwYZ8Uu5j+VaW+mOmc8EHerHzGcdbGNQSAUPgg==}
 
   /@trpc/server@11.0.0-next-beta.318:
     resolution: {integrity: sha512-lxwWfqgv3LvIfhagCElDtNEY6C2sQU3o43OH0vn9hQ+7o9j+JHwEZjZz1ixvm3wUZvwZ68LheXuKL9RdVn1d4w==}
-    dev: false
 
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}

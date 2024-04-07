@@ -1,5 +1,5 @@
 {
-  "name": "@tnq/client",
+  "name": "@tvq/client",
   "version": "1.0.0",
   "description": "Vue-query client for trpc",
   "keywords": [],

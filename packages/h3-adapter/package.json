@@ -1,5 +1,5 @@
 {
-  "name": "@tnq/h3-adapter",
+  "name": "@tvq/h3-adapter",
   "version": "1.0.0",
   "description": "H3 adapter for trpc",
   "keywords": [],

@@ -8,15 +8,15 @@ guide](./nuxt) instead.
 ::: code-group
 
 ```bash [npm]
-npm install -S @tnq/client @tanstack/vue-query @trpc/client @trpc/server
+npm install -S @tvq/client @tanstack/vue-query @trpc/client @trpc/server
 ```
 
 ```bash [pnpm]
-pnpm install -S @tnq/client @tanstack/vue-query @trpc/client @trpc/server
+pnpm install -S @tvq/client @tanstack/vue-query @trpc/client @trpc/server
 ```
 
 ```bash [yarn]
-yarn add @tnq/client @tanstack/vue-query @trpc/client @trpc/server
+yarn add @tvq/client @tanstack/vue-query @trpc/client @trpc/server
 ```
 
 :::
@@ -28,7 +28,7 @@ This will provide the interface for calling trpc procedures which we will show l
 ::: code-group
 
 ```ts [src/trpc.ts]
-import { createTRPCVue } from "@tnq/client";
+import { createTRPCVue } from "@tvq/client";
 // Tweak the import to point to server router export, similar to how react integration works
 import type { AppRouter } from "../server/router";
 

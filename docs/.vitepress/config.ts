@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "tnq",
+  title: "tvq",
   description: "A VitePress Site",
   cleanUrls: true,
   themeConfig: {
@@ -26,6 +26,6 @@ export default defineConfig({
       "/api/": [],
     },
 
-    socialLinks: [{ icon: "github", link: "https://github.com/Holi0317/tnq" }],
+    socialLinks: [{ icon: "github", link: "https://github.com/Holi0317/tvq" }],
   },
 });

@@ -1,5 +1,5 @@
 import type { AppRouter } from "./server/trpc/routers";
-import { createTRPCVue } from "@tnq/client";
+import { createTRPCVue } from "@tvq/client";
 
 export const trpc = createTRPCVue<AppRouter>({
   serverPrefetch: true,

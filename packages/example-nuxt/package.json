@@ -1,5 +1,5 @@
 {
-  "name": "@tnq/example-nuxt",
+  "name": "@tvq/example-nuxt",
   "private": true,
   "type": "module",
   "scripts": {
@@ -13,8 +13,8 @@
   "dependencies": {
     "@tanstack/query-core": "^5.28.13",
     "@tanstack/vue-query": "^5.28.13",
-    "@tnq/client": "workspace:^",
-    "@tnq/h3-adapter": "workspace:^",
+    "@tvq/client": "workspace:^",
+    "@tvq/h3-adapter": "workspace:^",
     "@trpc/client": "11.0.0-next-beta.318",
     "@trpc/server": "11.0.0-next-beta.318",
     "nuxt": "^3.11.1",

@@ -70,7 +70,7 @@ function useQueryProc<TRouter extends AnyRouter>(
     );
 
     const serverPrefetch =
-      context.opts.serverPrefetch ?? opts?.trpc?.serverPrefetch ?? false;
+      context.opts.serverPrefetch ?? opts?.serverPrefetch ?? false;
     if (serverPrefetch) {
       onServerPrefetch(() => {
         return queryHook.suspense();

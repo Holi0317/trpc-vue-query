@@ -1,12 +1,12 @@
 import { type App, createApp } from "vue";
 import { QueryClient, VueQueryPlugin } from "@tanstack/vue-query";
 import { onTestFinished } from "vitest";
-import type { CreateTRPCVue } from "../src/types/client";
+import type { TRPCVueRoot } from "../src/types/client";
 import type { AnyRouter } from "@trpc/server";
 import { TRPCUntypedClient, httpLink } from "@trpc/client";
 
 export function withSetup<TRouter extends AnyRouter, T>(
-  client: CreateTRPCVue<TRouter>,
+  client: TRPCVueRoot<TRouter>,
   port: number,
   composable: () => T,
 ): [T, App<Element>] {
@@ -27,6 +27,7 @@ export function withSetup<TRouter extends AnyRouter, T>(
       },
     }),
   });
+
   app.use(client, {
     client: new TRPCUntypedClient({
       links: [

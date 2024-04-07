@@ -82,4 +82,20 @@ describe("Simple server", () => {
   });
 });
 
-it.todo("should reject overlap naming on root");
+it("should reject overlap naming on root", () => {
+  const t = initTRPC.create();
+  const proc = t.procedure;
+
+  const router = t.router({
+    queryKeyFactory: proc.query(() => {
+      return "hello";
+    }),
+  });
+
+  type Router = typeof router;
+
+  const client = createTRPCVue<Router>();
+  assertType<"The property 'queryKeyFactory' in your router collides with a built-in method, rename this router or procedure on your backend.">(
+    client,
+  );
+});

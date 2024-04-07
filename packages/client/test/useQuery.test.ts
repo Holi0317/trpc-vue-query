@@ -143,6 +143,26 @@ describe("useQuery", async () => {
     });
   });
 
+  it("should unref query parameter", async () => {
+    const [q] = withSetup(client, port, () => {
+      return client.sub1.proc1.useQuery(ref({ deep: { content: 123 } }));
+    });
+
+    expect(q.trpc.path).toEqual("sub1.proc1");
+
+    await until(q.isFetching).toBe(false);
+    expect(q.error.value).toEqual(null);
+    expect(q.status.value).toEqual("success");
+
+    expect(q.data.value).toEqual(123);
+    expect(spy).toHaveBeenCalledOnce();
+    expect(spy).toBeCalledWith({
+      type: "query",
+      path: "sub1.proc1",
+      input: { deep: { content: 123 } },
+    });
+  });
+
   it("should deep unref query parameters", async () => {
     const [q] = withSetup(client, port, () => {
       return client.sub1.proc1.useQuery({ deep: ref({ content: 123 }) });

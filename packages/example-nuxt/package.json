@@ -15,11 +15,10 @@
     "@tanstack/vue-query": "^5.28.13",
     "@tvq/client": "workspace:^",
     "@tvq/h3-adapter": "workspace:^",
-    "@trpc/client": "11.0.0-next-beta.318",
-    "@trpc/server": "11.0.0-next-beta.318",
+    "@trpc/client": "^11.0.0-rc",
+    "@trpc/server": "^11.0.0-rc",
     "nuxt": "^3.11.1",
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.0",
+    "vue": "^3.3.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {

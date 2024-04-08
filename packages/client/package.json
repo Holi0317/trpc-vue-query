@@ -43,8 +43,8 @@
   "peerDependencies": {
     "@tanstack/query-core": "^5.28.4",
     "@tanstack/vue-query": "^5.28.4",
-    "@trpc/client": "11.0.0-next-beta.318",
-    "@trpc/server": "11.0.0-next-beta.318",
-    "vue": "^3.4.21"
+    "@trpc/client": "^11.0.0-rc",
+    "@trpc/server": "^11.0.0-rc",
+    "vue": "^3.3.0"
   }
 }

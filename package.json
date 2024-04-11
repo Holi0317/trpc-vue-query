@@ -8,7 +8,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "fmt": "prettier --write --ignore-unknown --cache .",
-    "lint": "eslint --ext .js,.ts,.cjs,.mjs,.vue .",
+    "lint": "eslint .",
     "prepare": "husky",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
@@ -18,14 +18,16 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.2.0",
-    "@typescript-eslint/parser": "^7.2.0",
+    "@eslint/js": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.6.0",
+    "@typescript-eslint/parser": "^7.6.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-vue": "^9.23.0",
+    "eslint-plugin-vue": "^9.24.1",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
+    "typescript-eslint": "^7.6.0",
     "vitepress": "^1.0.1"
   },
   "lint-staged": {

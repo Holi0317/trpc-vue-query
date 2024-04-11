@@ -54,4 +54,12 @@ module.exports = {
     ],
     "@typescript-eslint/no-import-type-side-effects": "error",
   },
+  overrides: [
+    {
+      files: ["packages/example-nuxt*/**/*.{ts,vue}"],
+      rules: {
+        "no-undef": "off",
+      },
+    },
+  ],
 };

@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@eslint/js':
+        specifier: ^9.0.0
+        version: 9.0.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.6.0
         version: 7.6.0(@typescript-eslint/parser@7.6.0)(eslint@8.57.0)(typescript@5.4.5)
@@ -32,6 +35,9 @@ importers:
       prettier:
         specifier: ^3.2.5
         version: 3.2.5
+      typescript-eslint:
+        specifier: ^7.6.0
+        version: 7.6.0(eslint@8.57.0)(typescript@5.4.5)
       vitepress:
         specifier: ^1.0.1
         version: 1.0.2(@algolia/client-search@4.23.3)(search-insights@2.13.0)(typescript@5.4.5)
@@ -1348,6 +1354,11 @@ packages:
   /@eslint/js@8.57.0:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
+  /@eslint/js@9.0.0:
+    resolution: {integrity: sha512-RThY/MnKrhubF6+s1JflwUjPEsnCEmYCWwqa/aRISKWNXGZ9epUwft4bUMM35SdKF9xvBrLydAM1RDHd1Z//ZQ==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    dev: true
 
   /@fastify/busboy@2.1.1:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
@@ -7882,6 +7893,25 @@ packages:
     resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
     engines: {node: '>=14.16'}
 
+  /typescript-eslint@7.6.0(eslint@8.57.0)(typescript@5.4.5):
+    resolution: {integrity: sha512-LY6vH6F1l5jpGqRtU+uK4+mOecIb4Cd4kaz1hAiJrgnNiHUA8wiw8BkJyYS+MRLM69F1QuSKwtGlQqnGl1Rc6w==}
+    engines: {node: ^18.18.0 || >=20.0.0}
+    peerDependencies:
+      eslint: ^8.56.0
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@typescript-eslint/eslint-plugin': 7.6.0(@typescript-eslint/parser@7.6.0)(eslint@8.57.0)(typescript@5.4.5)
+      '@typescript-eslint/parser': 7.6.0(eslint@8.57.0)(typescript@5.4.5)
+      '@typescript-eslint/utils': 7.6.0(eslint@8.57.0)(typescript@5.4.5)
+      eslint: 8.57.0
+      typescript: 5.4.5
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /typescript@5.4.2:
     resolution: {integrity: sha512-+2/g0Fds1ERlP6JsakQQDXjZdZMM+rqpamFZJEKh4kwTIn3iDkgKtby0CeNd5ATNZ4Ry1ax15TMx0W2V+miizQ==}
     engines: {node: '>=14.17'}
@@ -8622,7 +8652,7 @@ packages:
       '@vue/composition-api':
         optional: true
     dependencies:
-      vue: 3.4.21(typescript@5.4.5)
+      vue: 3.4.21(typescript@5.4.2)
 
   /vue-devtools-stub@0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}

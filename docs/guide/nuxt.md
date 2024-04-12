@@ -6,7 +6,7 @@ the plugin to fit your application need.
 
 A full example is available at [example-nuxt] directory.
 
-See also [h3 adapter](../h3-adapter) for the server adapter with h3/nitro.
+See also [h3 adapter](../h3-adapter/index) for the server adapter with h3/nitro.
 
 [example-nuxt]: https://github.com/Holi0317/tvq/tree/main/packages/example-nuxt
 

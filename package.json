@@ -1,9 +1,19 @@
 {
   "name": "tvq",
   "version": "0.1.0",
-  "description": "",
+  "description": "trpc and vue-query binding",
+  "license": "MIT",
+  "keywords": [
+    "trpc",
+    "vue",
+    "query"
+  ],
+  "author": "Hollis Wu",
+  "repository": "Holi0317/tvq",
+  "bugs": "https://github.com/Holi0317/tvq/issues",
+  "homepage": "https://holi0317.github.io/tvq",
   "private": true,
-  "main": "index.js",
+  "packageManager": "pnpm@8.15.6+sha256.01c01eeb990e379b31ef19c03e9d06a14afa5250b82e81303f88721c99ff2e6f",
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -14,9 +24,6 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "@eslint/js": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^7.6.0",

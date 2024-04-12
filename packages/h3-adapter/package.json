@@ -2,9 +2,17 @@
   "name": "@tvq/h3-adapter",
   "version": "0.1.0",
   "description": "H3 adapter for trpc",
-  "keywords": [],
-  "author": "",
   "license": "MIT",
+  "keywords": [
+    "trpc",
+    "h3",
+    "nitro",
+    "nuxt"
+  ],
+  "author": "Hollis Wu",
+  "repository": "Holi0317/tvq",
+  "bugs": "https://github.com/Holi0317/tvq/issues",
+  "homepage": "https://holi0317.github.io/tvq",
   "type": "module",
   "sideEffects": false,
   "exports": {

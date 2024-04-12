@@ -1,3 +1,6 @@
 dist/
+.output/
+.nuxt/
+docs/.vitepress/cache/
 
 pnpm-lock.yaml

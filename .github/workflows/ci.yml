@@ -21,5 +21,6 @@ jobs:
 
       - run: pnpm run lint
       - run: pnpm run fmt --check
+      - run: pnpm -r build
       - run: pnpm -r run typecheck
       - run: pnpm -r test

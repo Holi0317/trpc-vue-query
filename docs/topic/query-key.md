@@ -12,7 +12,7 @@ posts for how to choose a query key.
 
 ## Default query key factory
 
-The default query key factory is defined in [rootHandler](https://github.com/Holi0317/tvq/blob/main/packages/client/src/rootHandler.ts#L10-L12),
+The default query key factory is defined in [rootHandler](https://github.com/Holi0317/trpc-vue-query/blob/main/packages/client/src/rootHandler.ts#L10-L12),
 which is basically passing path and input into vue-query.
 
 ## Override query key factory

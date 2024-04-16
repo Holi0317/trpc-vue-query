@@ -8,7 +8,7 @@ A full example is available at [example-nuxt] directory.
 
 See also [h3 adapter](../h3-adapter/index) for the server adapter with h3/nitro.
 
-[example-nuxt]: https://github.com/Holi0317/tvq/tree/main/packages/example-nuxt
+[example-nuxt]: https://github.com/Holi0317/trpc-vue-query/tree/main/packages/example-nuxt
 
 ## 1. Install required packages
 

@@ -1,6 +1,6 @@
 # Overview
 
-tvq is a binding for [Trpc], [Vue] and [tanstack Query].
+trpc-vue-query is a binding for [Trpc], [Vue] and [tanstack Query].
 
 Just like the official binding for trpc and next, but for nuxt and vue instead.
 

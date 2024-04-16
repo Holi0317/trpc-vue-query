@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "tvq",
+  title: "trpc-vue-query",
   description: "A VitePress Site",
   cleanUrls: true,
   themeConfig: {
@@ -45,6 +45,8 @@ export default defineConfig({
       },
     ],
 
-    socialLinks: [{ icon: "github", link: "https://github.com/Holi0317/tvq" }],
+    socialLinks: [
+      { icon: "github", link: "https://github.com/Holi0317/trpc-vue-query" },
+    ],
   },
 });

@@ -8,4 +8,4 @@ TODO: Badges here
 [vue]: https://vuejs.org/
 [@tanstack/vue-query]: https://tanstack.com/query/latest
 
-See <https://holi0317.github.io/tvq> or <https://github.com/holi0317/tvq> for documentation.
+See <https://holi0317.github.io/trpc-vue-query> or <https://github.com/holi0317/trpc-vue-query> for documentation.

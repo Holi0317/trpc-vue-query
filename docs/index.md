@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "tvq"
+  name: "trpc-vue-query"
   text: "A VitePress Site"
   tagline: My great project tagline
   actions:

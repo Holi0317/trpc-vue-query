@@ -7,6 +7,7 @@ export default defineConfig({
   description: "trpc and vue-query binding, with @tanstack/vue-query",
   cleanUrls: true,
   lastUpdated: true,
+  base: "/trpc-vue-query",
 
   markdown: {
     config(md) {

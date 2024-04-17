@@ -1,9 +1,13 @@
-# Setup vue-query integration with trpc
+# Setup vue-trpc for vue project
 
 This is a setup guide for vue-based project. For nuxt-based project, see [the nuxt
 guide](./nuxt) instead.
 
 ## 1. Install required packages {#1-install}
+
+> [!WARNING]  
+> trpc-vue-query is designed for trpc v11. See [support matrix in overview](./index#support-matrix)
+> for details
 
 ::: code-group
 
@@ -21,7 +25,7 @@ yarn add @tvq/client @tanstack/vue-query @trpc/client @trpc/server
 
 :::
 
-## 2. Create trpc-vue hooks {#2-create-hook}
+## 2. Create trpc-vue-query hooks {#2-create-hook}
 
 This will provide the interface for calling trpc procedures which we will show later.
 

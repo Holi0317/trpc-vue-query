@@ -4,21 +4,15 @@ layout: home
 
 hero:
   name: "trpc-vue-query"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  tagline: "trpc and vue-query binding, with @tanstack/vue-query"
   actions:
-    - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
-
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    - theme: "brand"
+      text: "Quickstart"
+      link: "/guide/"
+    # - theme: "alt"
+    #   text: "API documentation"
+    #   link: "/api/"
+    - theme: "alt"
+      text: "GitHub"
+      link: "https://github.com/Holi0317/trpc-vue-query/"
 ---

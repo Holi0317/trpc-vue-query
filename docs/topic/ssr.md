@@ -15,7 +15,7 @@ This can also be override on per-`useQuery` bases.
 
 ## Suspense
 
-`useQuery` returns a suspense call from vue-query for using suspense. See [documentation
+`useQuery` returns a suspense method from vue-query for using suspense. See [documentation
 on vue-query](https://tanstack.com/query/latest/docs/framework/vue/guides/suspense) for details.
 
 ## Serializing vue-query state from SSR to client
@@ -29,4 +29,5 @@ those types properly. The query client state will include transformed values for
 
 In nuxt case, they will use [devalue](https://github.com/Rich-Harris/devalue) for app state serialization
 as [documented here](https://nuxt.com/docs/getting-started/data-fetching#serializing-data-from-server-to-client).
-This should handle most cases by default.
+This should handle most types by default. To handle custom type, you probably need to add
+custom serialization and deserialization logic in the vue-query binding for nuxt.

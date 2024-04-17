@@ -1,6 +1,6 @@
 # Query key
 
-trpc-vue allows customization on the generated query key passed down into vue-query.
+trpc-vue-query allows customization on the generated query key passed down into vue-query.
 
 This only affects queries. Mutation and subscription have hard-coded query factory.
 
@@ -18,7 +18,7 @@ which is basically passing path and input into vue-query.
 ## Override query key factory
 
 Provide a query key factory as `queryKeyFactory` when calling `createTRPCVue`. That should
-override all query key factories in the created trpc-vue hook.
+override all query key factories in the created trpc-vue-query hook.
 
 ```ts
 import { createTRPCVue } from "@tvq/client";

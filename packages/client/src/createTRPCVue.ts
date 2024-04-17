@@ -9,7 +9,7 @@ import { createRootHandler } from "./rootHandler";
 /**
  * Create the trpc-vue-query binding client.
  *
- * After creating this client, register it with `app.use` as a plugin.
+ * After creating this client, register it with `app.use` as a vue plugin.
  */
 export function createTRPCVue<TRouter extends AnyRouter>(
   opts: CreateTRPCVueOptions = {},

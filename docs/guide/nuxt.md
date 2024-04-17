@@ -12,23 +12,27 @@ See also [h3 adapter](../h3-adapter/index) for the server adapter with h3/nitro.
 
 ## 1. Install required packages
 
+> [!WARNING]  
+> tvq is designed for trpc v11. See [support matrix in overview](./index#support-matrix)
+> for details
+
 ::: code-group
 
 ```bash [npm]
-npm install -S @tvq/client @tanstack/vue-query @trpc/client @trpc/server
+npm install -S @tvq/client @tanstack/vue-query @trpc/client@next @trpc/server@next
 ```
 
 ```bash [pnpm]
-pnpm install -S @tvq/client @tanstack/vue-query @trpc/client @trpc/server
+pnpm install -S @tvq/client @tanstack/vue-query @trpc/client@next @trpc/server@next
 ```
 
 ```bash [yarn]
-yarn add @tvq/client @tanstack/vue-query @trpc/client @trpc/server
+yarn add @tvq/client @tanstack/vue-query @trpc/client@next @trpc/server@next
 ```
 
 :::
 
-## 2. Create trpc-vue hooks
+## 2. Create trpc-vue-query hooks
 
 This will provide the interface for calling trpc procedures which we will show later.
 

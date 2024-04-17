@@ -1,10 +1,19 @@
 import { defineConfig } from "vitepress";
+import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "trpc-vue-query",
-  description: "A VitePress Site",
+  description: "trpc and vue-query binding, with @tanstack/vue-query",
   cleanUrls: true,
+  lastUpdated: true,
+
+  markdown: {
+    config(md) {
+      md.use(tabsMarkdownPlugin);
+    },
+  },
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
 
@@ -12,10 +21,14 @@ export default defineConfig({
       provider: "local",
     },
 
+    editLink: {
+      pattern:
+        "https://github.com/Holi0317/trpc-vue-query/edit/main/docs/:path",
+    },
+
     nav: [
       { text: "Guide", link: "/guide/" },
-      { text: "H3 Adapter", link: "/h3-adapter" },
-      { text: "API docs", link: "/api/" },
+      // { text: "API docs", link: "/api/" },
     ],
 
     sidebar: [
@@ -32,17 +45,12 @@ export default defineConfig({
       },
       {
         text: "H3 adapter",
-        items: [
-          { text: "Overview", link: "/h3-adapter/" },
-          { text: "Setup with Nuxt", link: "/h3-adapter/nuxt" },
-          { text: "Setup with nitro", link: "/h3-adapter/nitro" },
-          { text: "Setup with h3", link: "/h3-adapter/h3" },
-        ],
+        items: [{ text: "Overview", link: "/h3-adapter/" }],
       },
-      {
-        text: "API documentation",
-        items: [{ text: "JSDoc", link: " /api/jsdoc" }],
-      },
+      // {
+      //   text: "API documentation",
+      //   items: [{ text: "JSDoc", link: " /api/jsdoc" }],
+      // },
     ],
 
     socialLinks: [

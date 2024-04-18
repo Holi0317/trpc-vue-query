@@ -34,6 +34,7 @@
     "dist"
   ],
   "scripts": {
+    "prepare": "npm run build",
     "build": "unbuild",
     "typecheck": "tsc --noEmit",
     "test": "vitest"

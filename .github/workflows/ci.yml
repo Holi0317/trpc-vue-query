@@ -17,10 +17,27 @@ jobs:
           node-version-file: ".node-version"
           cache: "pnpm"
 
-      - run: pnpm install
+      - name: "Install packages"
+        run: pnpm install
 
-      - run: pnpm run lint
-      - run: pnpm run fmt --check
-      - run: pnpm -r build
-      - run: pnpm -r run typecheck
-      - run: pnpm -r test
+      - name: "Run eslint"
+        run: pnpm run lint
+      - name: "Check prettier"
+        run: pnpm run fmt --check
+
+      - name: "Building all packages"
+        run: pnpm -r build
+      - name: "Typescript typecheck"
+        run: pnpm -r run typecheck
+      - name: "Run unit tests"
+        run: pnpm -r test
+
+      - name: "Check attw for @tvq/client"
+        working-directory: packages/client
+        run: |
+          pnpm exec attw $(pnpm pack)
+
+      - name: "Check attw for @tvq/h3-adapter"
+        working-directory: packages/h3-adapter
+        run: |
+          pnpm exec attw $(pnpm pack)

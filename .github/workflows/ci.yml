@@ -35,9 +35,9 @@ jobs:
       - name: "Check attw for @tvq/client"
         working-directory: packages/client
         run: |
-          pnpm exec attw $(pnpm pack)
+          pnpm exec attw "$(pnpm pack | tail -n 1)"
 
       - name: "Check attw for @tvq/h3-adapter"
         working-directory: packages/h3-adapter
         run: |
-          pnpm exec attw $(pnpm pack)
+          pnpm exec attw "$(pnpm pack | tail -n 1)"

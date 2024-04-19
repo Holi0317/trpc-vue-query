@@ -35,14 +35,14 @@
     "test": "vitest --typecheck"
   },
   "devDependencies": {
-    "@types/node": "^20.11.28",
+    "@types/node": "^20.12.7",
     "@vueuse/core": "^10.9.0",
-    "get-port": "^7.0.0",
+    "get-port": "^7.1.0",
     "jsdom": "^24.0.0",
-    "typescript": "^5.4.2",
+    "typescript": "^5.4.5",
     "unbuild": "^2.0.0",
-    "vitest": "^1.4.0",
-    "zod": "^3.22.4"
+    "vitest": "^1.5.0",
+    "zod": "^3.22.5"
   },
   "peerDependencies": {
     "@tanstack/query-core": "^5.28.4",

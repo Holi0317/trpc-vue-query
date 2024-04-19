@@ -11,18 +11,18 @@
     "typecheck": "nuxi typecheck"
   },
   "dependencies": {
-    "@tanstack/query-core": "^5.28.13",
-    "@tanstack/vue-query": "^5.28.13",
-    "@trpc/client": "^11.0.0-rc",
-    "@trpc/server": "^11.0.0-rc",
+    "@tanstack/query-core": "^5.29.0",
+    "@tanstack/vue-query": "^5.29.0",
     "@trpc-vue-query/client": "workspace:^",
     "@trpc-vue-query/h3-adapter": "workspace:^",
-    "nuxt": "^3.11.1",
+    "@trpc/client": "^11.0.0-rc",
+    "@trpc/server": "^11.0.0-rc",
+    "nuxt": "^3.11.2",
     "superjson": "^2.2.1",
-    "vue": "^3.3.0",
-    "zod": "^3.22.4"
+    "vue": "^3.4.23",
+    "zod": "^3.22.5"
   },
   "devDependencies": {
-    "vue-tsc": "^2.0.7"
+    "vue-tsc": "^2.0.13"
   }
 }

@@ -32,12 +32,12 @@ jobs:
       - name: "Run unit tests"
         run: pnpm -r test
 
-      - name: "Check attw for @tvq/client"
+      - name: "Check attw for @trpc-vue-query/client"
         working-directory: packages/client
         run: |
           pnpm exec attw "$(pnpm pack | tail -n 1)"
 
-      - name: "Check attw for @tvq/h3-adapter"
+      - name: "Check attw for @trpc-vue-query/h3-adapter"
         working-directory: packages/h3-adapter
         run: |
           pnpm exec attw "$(pnpm pack | tail -n 1)"

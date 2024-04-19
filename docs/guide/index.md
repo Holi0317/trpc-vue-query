@@ -6,7 +6,7 @@ Just like the [official integration] for trpc and react-query, but for vue inste
 
 > [!NOTE]  
 > The GitHub repository is [Holi0317/trpc-vue-query], and we publish to npm package under
-> [`@tvq` namespace](https://www.npmjs.com/search?q=%40tvq).
+> [`@trpc-vue-query` namespace](https://www.npmjs.com/search?q=%40trpc-vue-query).
 >
 > The npm package [trpc-vue-query] is **NOT** owned by us and is a different (and empty?) package.
 

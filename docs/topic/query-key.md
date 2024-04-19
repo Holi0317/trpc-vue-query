@@ -21,7 +21,7 @@ Provide a query key factory as `queryKeyFactory` when calling `createTRPCVue`. T
 override all query key factories in the created trpc-vue-query hook.
 
 ```ts
-import { createTRPCVue } from "@tvq/client";
+import { createTRPCVue } from "@trpc-vue-query/client";
 import type { QueryKey } from "@tanstack/query-core";
 
 export const trpc = createTRPCVue<AppRouter>({

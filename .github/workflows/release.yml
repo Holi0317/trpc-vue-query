@@ -68,6 +68,7 @@ jobs:
       - name: "Generate changelog and create GitHub release"
         env:
           GIT_TAG: "${{needs.git-tag.outputs.tag}}"
+          GH_TOKEN: ${{ github.token }}
         run: |
           pnpm exec git cliff | gh release create "$GIT_TAG" -F -
 

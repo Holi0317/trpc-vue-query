@@ -1,10 +1,10 @@
-# tvq
+# trpc-vue-query
 
 [![GitHub License](https://img.shields.io/github/license/Holi0317/trpc-vue-query)](https://github.com/Holi0317/trpc-vue-query/blob/main/LICENSE)
 [![Node.js CI](https://github.com/Holi0317/trpc-vue-query/actions/workflows/ci.yml/badge.svg)](https://github.com/Holi0317/trpc-vue-query/actions/workflows/ci.yml)
 [![Release](https://github.com/Holi0317/trpc-vue-query/actions/workflows/release.yml/badge.svg)](https://github.com/Holi0317/trpc-vue-query/actions/workflows/release.yml)
 [![Documentation page](https://github.com/Holi0317/trpc-vue-query/actions/workflows/page.yml/badge.svg)](https://github.com/Holi0317/trpc-vue-query/actions/workflows/page.yml)
-[![NPM version](https://img.shields.io/npm/v/%40tvq%2Fclient)](https://www.npmjs.com/package/@tvq/client)
+[![NPM version](https://img.shields.io/npm/v/%40trpc-vue-query%2Fclient)](https://www.npmjs.com/package/@trpc-vue-query/client)
 
 trpc-vue-query is a binding for [Trpc], [Vue] and [tanstack Query].
 

@@ -13,7 +13,7 @@ client and server integration.
 > trpc-vue-query is designed for trpc v11. See [support matrix in overview](../guide/index#support-matrix)
 > for details
 
-[example-nuxt]: https://github.com/Holi0317/tvq/tree/main/packages/example-nuxt
+[example-nuxt]: https://github.com/Holi0317/trpc-vue-query/tree/main/packages/example-nuxt
 [server adapter]: https://trpc.io/docs/server/adapters
 [h3]: https://h3.unjs.io/
 [nitro]: https://nitro.unjs.io/
@@ -27,15 +27,15 @@ Assuming you already got h3/nitro/nuxt setup already.
 ::: code-group
 
 ```bash [npm]
-npm i -S @tvq/h3-adapter @trpc/server@next
+npm i -S @trpc-vue-query/h3-adapter @trpc/server@next
 ```
 
 ```bash [pnpm]
-pnpm add @tvq/h3-adapter @trpc/server@next
+pnpm add @trpc-vue-query/h3-adapter @trpc/server@next
 ```
 
 ```bash [yarn]
-yarn add @tvq/h3-adapter @trpc/server@next
+yarn add @trpc-vue-query/h3-adapter @trpc/server@next
 ```
 
 :::
@@ -80,7 +80,7 @@ TRPC will be available on "/trpc" for `httpBatchLink` input.
 
 ```ts
 import { createApp, createRouter, defineEventHandler } from "h3";
-import { h3RequestHandler } from "@tvq/h3-adapter";
+import { h3RequestHandler } from "@trpc-vue-query/h3-adapter";
 import { router } from "./trpc/trpc";
 
 const app = createApp();
@@ -122,7 +122,7 @@ TRPC will be available on "/trpc" for `httpBatchLink` input.
 
 ```ts [routes/trpc/[trpc].ts]
 // File: routes/trpc/[trpc].ts
-import { h3RequestHandler } from "@tvq/h3-adapter";
+import { h3RequestHandler } from "@trpc-vue-query/h3-adapter";
 import { router } from "../../trpc/trpc";
 
 export default h3RequestHandler({
@@ -136,7 +136,7 @@ parameter is `trpc`. If you wish to change that, pass the route parameter into
 
 ```ts [routes/trpc/[something].ts]
 // File: routes/trpc/[something].ts
-import { h3RequestHandler } from "@tvq/h3-adapter";
+import { h3RequestHandler } from "@trpc-vue-query/h3-adapter";
 import { router } from "../../trpc/trpc";
 
 export default h3RequestHandler({
@@ -151,7 +151,7 @@ TRPC will be available on "/api/trpc" for `httpBatchLink` input.
 
 ```ts [server/api/trpc/[trpc].ts]
 // File: server/api/trpc/[trpc].ts
-import { h3RequestHandler } from "@tvq/h3-adapter";
+import { h3RequestHandler } from "@trpc-vue-query/h3-adapter";
 import { router } from "../../trpc/trpc";
 
 export default h3RequestHandler({
@@ -165,7 +165,7 @@ parameter is `trpc`. If you wish to change that, pass the route parameter into
 
 ```ts [server/api/trpc/[something].ts]
 // File: server/api/trpc/[something].ts
-import { h3RequestHandler } from "@tvq/h3-adapter";
+import { h3RequestHandler } from "@trpc-vue-query/h3-adapter";
 import { router } from "../../trpc/trpc";
 
 export default h3RequestHandler({

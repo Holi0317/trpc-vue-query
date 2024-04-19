@@ -1,4 +1,4 @@
-# @tvq/client
+# @trpc-vue-query/client
 
 TODO: Badges here
 

@@ -1,4 +1,4 @@
-# @tvq/h3-adapter
+# @trpc-vue-query/h3-adapter
 
 TODO: Badges here
 

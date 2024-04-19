@@ -1,5 +1,5 @@
 {
-  "name": "@tvq/h3-adapter",
+  "name": "@trpc-vue-query/h3-adapter",
   "version": "0.1.0",
   "description": "H3 adapter for trpc",
   "license": "MIT",

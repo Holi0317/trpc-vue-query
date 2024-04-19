@@ -13,21 +13,21 @@ See also [h3 adapter](../h3-adapter/index) for the server adapter with h3/nitro.
 ## 1. Install required packages
 
 > [!WARNING]  
-> tvq is designed for trpc v11. See [support matrix in overview](./index#support-matrix)
+> trpc-vue-query is designed for trpc v11. See [support matrix in overview](./index#support-matrix)
 > for details
 
 ::: code-group
 
 ```bash [npm]
-npm install -S @tvq/client @tanstack/vue-query @trpc/client@next @trpc/server@next
+npm install -S @trpc-vue-query/client @tanstack/vue-query @trpc/client@next @trpc/server@next
 ```
 
 ```bash [pnpm]
-pnpm install -S @tvq/client @tanstack/vue-query @trpc/client@next @trpc/server@next
+pnpm install -S @trpc-vue-query/client @tanstack/vue-query @trpc/client@next @trpc/server@next
 ```
 
 ```bash [yarn]
-yarn add @tvq/client @tanstack/vue-query @trpc/client@next @trpc/server@next
+yarn add @trpc-vue-query/client @tanstack/vue-query @trpc/client@next @trpc/server@next
 ```
 
 :::
@@ -41,7 +41,7 @@ This file can be placed under `utils/trpc.ts` so it is available via [auto impor
 ::: code-group
 
 ```ts [utils/trpc.ts]
-import { createTRPCVue } from "@tvq/client";
+import { createTRPCVue } from "@trpc-vue-query/client";
 // Tweak the import to point to server router export, similar to how react integration works
 import type { AppRouter } from "../server/trpc/routers";
 

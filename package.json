@@ -1,5 +1,5 @@
 {
-  "name": "tvq",
+  "name": "trpc-vue-query",
   "version": "0.1.0",
   "description": "trpc and vue-query binding, with @tanstack/vue-query",
   "license": "MIT",

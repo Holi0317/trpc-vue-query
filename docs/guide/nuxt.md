@@ -98,7 +98,7 @@ export default defineNuxtPlugin({
 
 ```ts [plugins/vue-trpc.ts]
 import { TRPCUntypedClient, httpBatchLink } from "@trpc/client";
-import { trpc } from "../trpc";
+import { trpc } from "../utils/trpc";
 
 export default defineNuxtPlugin({
   name: "vue-trpc",

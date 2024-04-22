@@ -3,6 +3,7 @@ import {
   resolveHTTPResponse,
   getBatchStreamFormatter,
   type HTTPRequest,
+  TRPCRequestInfo,
 } from "@trpc/server/http";
 import type { H3HandlerOptions } from "./types";
 import {
@@ -50,8 +51,12 @@ export function h3RequestHandler<TRouter extends AnyRouter>(
   return defineEventHandler(async (event): Promise<Response> => {
     const resHeaders = new Headers();
 
-    const createContext = async () => {
-      return opts.createContext?.({ req: event, resHeaders });
+    const createContext = async (innerOpt: { info: TRPCRequestInfo }) => {
+      return opts.createContext?.({
+        event: event,
+        resHeaders,
+        info: innerOpt.info,
+      });
     };
 
     const path = trimSlashes(

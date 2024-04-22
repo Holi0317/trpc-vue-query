@@ -1,10 +1,18 @@
 import type { AnyRouter, inferRouterContext } from "@trpc/server";
-import type { HTTPBaseHandlerOptions } from "@trpc/server/http";
+import type {
+  HTTPBaseHandlerOptions,
+  TRPCRequestInfo,
+} from "@trpc/server/http";
 import type { H3Event } from "h3";
 
 export interface H3CreateContextFnOptions {
-  req: H3Event;
+  /**
+   * Event (aka request) from H3
+   */
+  event: H3Event;
+
   resHeaders: Headers;
+  info: TRPCRequestInfo;
 }
 
 export type H3CreateContextFn<TRouter extends AnyRouter> = (

@@ -13,7 +13,7 @@
   "bugs": "https://github.com/Holi0317/trpc-vue-query/issues",
   "homepage": "https://holi0317.github.io/trpc-vue-query",
   "private": true,
-  "packageManager": "pnpm@8.15.6+sha256.01c01eeb990e379b31ef19c03e9d06a14afa5250b82e81303f88721c99ff2e6f",
+  "packageManager": "pnpm@9.0.5+sha256.61bd66913b52012107ec25a6ee4d6a161021ab99e04f6acee3aa50d0e34b4af9",
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
